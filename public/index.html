@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaflet Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .body-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        #map {
+            flex-grow: 1;
+            height: 100%; /* ★3. マップがコンテナ全体に広がるように修正 */
+        }
+
+        .info-panel {
+            flex-shrink: 0;
+            width: 300px;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+        }
+
+        #map-bounds-display {
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-family: monospace;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="body-container">
+    <div id="map"></div>
+
+    <div class="info-panel">
+        <h2>Mapの領域</h2>
+        <p>現在表示されている領域:</p>
+        <div id="map-bounds-display"></div>
+
+
+        <div id="infoModal" style="display: none;">
+            <div class="info-box">
+                <h3>投稿者: <input type="text" id="posterName"></h3>
+                <p><strong>年代:</strong> <input type="text" id="era"></p>
+                <p><textarea id="bodyText"></textarea></p>
+            </div>
+            <button id="submitInfo">Submit</button>
+            <button id="cancelInfo">Cancel</button>
+        </div>
+
+        <script src="./map.ts" type="module"></script>
+    </div>
+</div>
+</body>
+</html>
