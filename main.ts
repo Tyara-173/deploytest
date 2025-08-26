@@ -3,7 +3,7 @@
 import {serveDir} from 'jsr:@std/http/file-server';
 import {join} from 'jsr:@std/path';
 import * as esbuild from "npm:esbuild@0.20.2";
-import { denoPlugins } from "jsr:@luca/esbuild-deno-loader@^0.11.1";
+import { denoPlugins } from "@luca/esbuild-deno-loader"; // importを修正
 import {MapDataItem} from './types/map.ts';
 import {query} from './backend/backend.ts';
 
